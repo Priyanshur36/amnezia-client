@@ -77,10 +77,10 @@ disabled after 14 days, and all log files will be deleted.")
                 Layout.leftMargin: 16
                 Layout.rightMargin: 16
 
-                text: qsTr("Save logs")
+                text: qsTr("Enable logs")
 
                 checked: SettingsController.isLoggingEnabled
-                KeyNavigation.tab: openFolderButton
+                //KeyNavigation.tab: openFolderButton
                 onCheckedChanged: {
                     if (checked !== SettingsController.isLoggingEnabled) {
                         SettingsController.isLoggingEnabled = checked
@@ -195,6 +195,8 @@ disabled after 14 days, and all log files will be deleted.")
             DividerType {}
 
             ListItemTitleType {
+                visible: !GC.isMobile()
+
                 Layout.fillWidth: true
                 Layout.topMargin: 32
                 Layout.leftMargin: 16
@@ -204,6 +206,8 @@ disabled after 14 days, and all log files will be deleted.")
             }
 
             ParagraphTextType {
+                visible: !GC.isMobile()
+
                 Layout.fillWidth: true
                 Layout.topMargin: 8
                 Layout.leftMargin: 16
@@ -215,12 +219,15 @@ disabled after 14 days, and all log files will be deleted.")
 
             LabelWithButtonType {
                 // id: labelWithButton2
+
+                visible: !GC.isMobile()
+
                 Layout.fillWidth: true
                 Layout.topMargin: -8
                 Layout.bottomMargin: -8
 
                 text: qsTr("Open logs folder")
-                rightImageSource: "qrc:/images/controls/save.svg"
+                rightImageSource: "qrc:/images/controls/folder-open.svg"
 
                 // KeyNavigation.tab: labelWithButton3
 
@@ -229,10 +236,15 @@ disabled after 14 days, and all log files will be deleted.")
                 }
             }
 
-            DividerType {}
+            DividerType {
+                visible: !GC.isMobile()
+            }
 
             LabelWithButtonType {
                 // id: labelWithButton2
+
+                visible: !GC.isMobile()
+
                 Layout.fillWidth: true
                 Layout.topMargin: -8
                 Layout.bottomMargin: -8
@@ -262,7 +274,9 @@ disabled after 14 days, and all log files will be deleted.")
                 }
             }
 
-            DividerType {}
+            DividerType {
+                visible: !GC.isMobile()
+            }
         }
     }
 }
